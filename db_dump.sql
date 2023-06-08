@@ -29,7 +29,7 @@ CREATE TABLE `employee` (
   `hired_at` date DEFAULT NULL,
   `hourly_wage` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -38,7 +38,7 @@ CREATE TABLE `employee` (
 
 LOCK TABLES `employee` WRITE;
 /*!40000 ALTER TABLE `employee` DISABLE KEYS */;
-INSERT INTO `employee` VALUES (1,'Henry','Clerk','2018-10-21',17),(2,'Jacob','Sales','2022-10-18',20),(3,'Aaron','Clerk','2012-12-15',22),(4,'Cassandra','Sales','2020-09-18',21),(5,'Jewel','Janitor','2012-04-19',20);
+INSERT INTO `employee` VALUES (1,'Henry','Clerk','2018-10-21',17),(4,'Cassandra','Sales','2020-09-18',25),(5,'Jewel','Janitor','2012-04-19',20),(6,'Alex','Clerk','2023-06-08',15),(7,'Cameron','Clerk','2023-06-08',NULL);
 /*!40000 ALTER TABLE `employee` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -56,7 +56,7 @@ CREATE TABLE `item` (
   `price` int(11) DEFAULT NULL,
   `created_at` date DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -65,7 +65,7 @@ CREATE TABLE `item` (
 
 LOCK TABLES `item` WRITE;
 /*!40000 ALTER TABLE `item` DISABLE KEYS */;
-INSERT INTO `item` VALUES (1,'Chair','This is a chair',150,'2023-11-23'),(2,'Table','This is a table',250,'2023-09-22'),(3,'Dresser','This is a dresser',300,'2022-11-20'),(4,'Sofa','This is a sofa',300,'2020-12-19'),(5,'Chair','This is a chair',250,'2021-11-13'),(6,'TV','This is a TV',600,'2021-02-23'),(7,'TV','This is a TV',300,'2023-06-17'),(8,'Bed','This is a bed',400,'2023-07-13'),(9,'Desk','This is a desk',125,'2020-07-19'),(10,'Stove','This is a stove',225,'2021-01-19');
+INSERT INTO `item` VALUES (3,'Dresser','This is a dresser',300,'2022-11-20'),(4,'Sofa','This is a sofa',300,'2020-12-19'),(5,'Chair','This is a chair',250,'2021-11-13'),(6,'TV','This is a TV',600,'2021-02-23'),(7,'TV','This is a TV',300,'2023-06-17'),(8,'Bed','This is a bed',400,'2023-07-13'),(9,'Desk','This is a desk',125,'2020-07-19'),(10,'Stove','This is a stove',225,'2021-01-19'),(11,'name','description',250,'2023-06-08');
 /*!40000 ALTER TABLE `item` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -173,7 +173,7 @@ DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `patch_idprice`(id_input int unsigned, price_input int(10))
     MODIFIES SQL DATA
 BEGIN
-	update item set price = points_input where id = id_input;
+	update item set price = price_input where id = id_input;
 	select id, name, price from item where id=id_input;
 	commit;
 END ;;
@@ -257,4 +257,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-06-07 22:28:38
+-- Dump completed on 2023-06-08 17:36:03
