@@ -19,3 +19,8 @@ values
 ('Aaron','Clerk','2012-12-15', 22),
 ('Cassandra','Sales','2020-09-18',21),
 ('Jewel','Janitor','2012-04-19', 20);
+
+call patch_idprice(2, 500);
+call delete_item(2);
+call insert_employee('Alex', 'Clerk', 15);
+call return_spec_employee(4); 

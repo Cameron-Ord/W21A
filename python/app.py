@@ -15,7 +15,6 @@ app = Flask(__name__)
 @app.get('/api/return_all')
 def select_all():
    try:   
-
       results = dbhelper.run_proceedure('CALL return_all', [])
       if(type(results)==list):
          results_json = json.dumps(results, default=str)
